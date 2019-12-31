@@ -1,0 +1,180 @@
+html body {
+  scroll-behavior: smooth;
+  background-color: #351B96 !important;
+  color: #ccc;
+}
+::-webkit-scrollbar { 
+  display: none; 
+}
+.tridi {
+  position: absolute;
+  top: 0%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 4.4em;
+  font-weight: 700;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+      1px 2px 1px #919191,
+      1px 3px 1px #919191,
+      1px 4px 1px #919191,
+      1px 5px 1px #919191,
+      1px 6px 1px #919191,
+      1px 7px 1px #919191,
+      1px 8px 1px #919191,
+      1px 9px 1px #919191,
+      1px 10px 1px #919191,
+  1px 18px 6px rgba(16,16,16,0.4),
+  1px 22px 10px rgba(16,16,16,0.2),
+  1px 25px 35px rgba(16,16,16,0.2),
+  1px 30px 60px rgba(16,16,16,0.4);
+}
+.tridi2 {
+  font-family: verdana;
+  color: #f5f5f5;
+  text-shadow: 1px 1px 1px #919191,
+      1px 2px 1px #919191,
+      1px 3px 1px #919191,
+      1px 4px 1px #919191,
+      1px 5px 1px #919191,
+      1px 6px 1px #919191,
+      1px 7px 1px #919191,
+      1px 8px 1px #919191,
+      1px 9px 1px #919191,
+      1px 10px 1px #919191,
+  1px 18px 6px rgba(16,16,16,0.4),
+  1px 22px 10px rgba(16,16,16,0.2),
+  1px 25px 35px rgba(16,16,16,0.2),
+  1px 30px 60px rgba(16,16,16,0.4);
+}
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://cdn.asthriona.com/yukikobod%20background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+.me {
+  margin-top: 100px;
+}
+.waifuimg {
+  display: block;
+  text-align: center;
+}
+.waifuimg img {
+  width: 16%;
+}
+.nab {
+  text-align: center;
+  color: lightgray;
+}
+.nab a:link{ color:lightgray; } 
+.nab a:visited{ color:lightgray; } 
+.nab a:hover{ color:lightgray; } 
+.nab a:active{ color:lightgray}
+.social a:link {  
+  color:white;
+  -o-transition:color .2s ease-out, background 1s ease-in;
+  -ms-transition:color .2s ease-out, background 1s ease-in;
+  -moz-transition:color .2s ease-out, background 1s ease-in;
+  -webkit-transition:color .2s ease-out, background 1s ease-in;
+  transition:color .2s ease-out, background 1s ease-in;
+}
+.social a:visited {color: white;}
+.social a:hover {color: black;}
+.social a:active {color: #f5f5f5;}
+.social {
+  color: #f5f5f5;
+} 
+footer {
+  position: relative;
+  background-color: #000000;
+  color: aliceblue;
+  text-align: center;
+  margin-top: 10%;
+}
+/*CONTACT FORM*/
+.form {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=submit] {
+  background-color: rgb(173, 173, 173);
+  color: black;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 500ms;
+}
+input[type=submit]:hover {
+  background-color: #ffffff;
+  border: 3px #007e0a;
+  transition: 500ms;
+}
+iframe {
+  position: fixed;
+  background: #000;
+  border: none;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* NAV */
+.main-header {
+  width: 100% !important;
+  background: #022d30 !important;
+  height: 4.5rem !important;
+}
+.main-nav {
+  height: 100% !important;
+}
+.nav-link {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100% !important;
+  margin: 0 1rem !important;
+  padding: 0.3rem !important;
+}
+.nav-links {
+  height: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 0 1rem !important;
+  padding: 0.3rem !important;
+}
+.nav-link.nav-link.nuxt-link-exact-active {
+  border-bottom: 3px solid #06c4d1 !important;
+}
+.nav-links a {
+  display: block !important;
+  text-decoration: none !important;
+  color: white !important;
+}
+.nav-link a:hover,
+.nav-link a:active,
+.nav-link.nuxt-link-exact-active a {
+  color: #06c4d1 !important;
+}
