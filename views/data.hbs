@@ -1,0 +1,41 @@
+    <!--<div>
+        {{# each items }}
+        <dt>
+            <article class="table-borderless">
+                <div class="lbPlayerLeft">
+                    <img src="{{this.avatarURL}}" alt="{{this.username}}'s avatar'" height="128px" width="128px" class="rounded-circle lbplayericon">
+                    <div class="lbPlayerUsername">Username: {{this.username}} </div>
+                </div>
+                <div class="lbPlayerStats">
+                    <div>XP: {{ this.xp }}</div>
+                    <div>Level: {{ this.level }}</div>
+                    <div>Message: {{this.message}}</div>
+                </div>
+                <hr>
+            </article>
+        </dt>
+        {{/each}}
+    </div>-->
+
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Avatar</th>
+      <th scope="col">Username</th>
+      <th scope="col">XP</th>
+      <th scope="col">Level</th>
+      <th scope="col">message</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{# each items }}
+    <tr>
+      <td><img src="{{this.avatarURL}}" class="lbplayericon rounded-circle" alt=""></td>
+      <td>{{this.username}} </td>
+      <td>{{this.xp}}</td>
+      <td>{{this.level}}</td>
+      <td>{{this.message}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
