@@ -1,0 +1,3 @@
+{
+    "dbLink": "mongodb+srv://USER:PASSWORD@DATABASE/COLLECTION"
+}
