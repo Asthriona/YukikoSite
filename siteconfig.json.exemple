@@ -1,3 +1,11 @@
 {
-    "dbLink": "mongodb+srv://USER:PASSWORD@DATABASE/COLLECTION"
+    "dbLink": "mongodb://username:PASSWORD@IP/COLLECTION",
+    "client_id": "Discord Oauth ID",
+    "client_secret": "Discord Oauth Secret",
+    "client_redirect": "/auth/redirect",
+    "secret": "You secret key! Shhht! (Put what ever you want here.)",
+    "host": "remote FTP host",
+    "user": "remote FTP user",
+    "password": "remote FTP password",
+    "destpath": "Remote FTP Path. (FTP is not in use for now, and will probably be removed soon.)"
 }
