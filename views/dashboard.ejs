@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs') -%>
+<%- include('partials/dashHead.ejs') -%>
+<div class="spacer"></div>
+<div class="guild">
+    <div class="container">
+        <div class="row">
+            <% guilds.forEach(guild =>{%>
+            <%- include('partials/guilds', { guild }) -%>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') -%>

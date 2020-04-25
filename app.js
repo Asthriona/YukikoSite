@@ -3,18 +3,41 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var helmet = require('helmet')
-require('dotenv').config()
+var helmet = require('helmet');
+var session = require('express-session');
+var passport = require('passport');
+var DiscordStrategies = require('./strategies/discordstrategies');
+var MongoStore = require('connect-mongo')(session);
+var mongoose = require('mongoose');
+var db = require('./database/database');
+var config = require('./siteconfig.json');
+require('dotenv').config();
 
+db.then(() => console.log("Connected to Kurisu database."))
+
+//routes
 var indexRouter = require('./routes/index');
+var authRouter = require('./routes/auth');
+var dashboardRouter = require('./routes/dashboard');
 var leaderboardRouter = require('./routes/leaderboard');
 
 var app = express();
-app.use(helmet())
+app.use(helmet());
+// Middleware
+app.use(session({
+  secret: config.secret,
+  cookie: {
+    maxAge: 60000 * 60 * 1
+  },
+  saveUninitialized: false,
+  name: 'Yukiko_Yummy_cookie',
+  store: new MongoStore({ mongooseConnection:  mongoose.connection })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -23,6 +46,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/leaderboard', leaderboardRouter);
 
 // catch 404 and forward to error handler
@@ -40,8 +65,4 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
-
 module.exports = app;

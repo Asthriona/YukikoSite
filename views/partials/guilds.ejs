@@ -1,0 +1,13 @@
+<div class="col col-3 gimmespace">
+    <div class="card guildcard" style="width: 18rem;">
+        <% if(guild.icon.startsWith('a_')){ %>
+        <%    icon = "https://cdn.discordapp.com/icons/"+guild.id+"/"+guild.icon+".gif" %>
+        <% }else{ %>
+        <%    icon = "https://cdn.discordapp.com/icons/"+guild.id+"/"+guild.icon+".png" %>
+        <% } %>
+        <img class="card-img-top" src="<%= icon %>" alt="">
+        <div class="card-body">
+            <h6 class="card-title"><%= guild.name %></h6>
+        </div>
+    </div>
+</div>

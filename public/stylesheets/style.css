@@ -300,3 +300,81 @@ dt {
   counter-increment: leaderboard-counter;
 
 }
+
+/* Footer by Aimee => http://www.mangoya.cn/ */
+.footBack{
+  color:#888;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 0.5;
+  text-align: center;
+  width:100%;
+  min-height: 50px;
+  margin-top: 25px;
+  position: absolute;
+}
+.fcontainer{
+  width:100%;
+  background: #232323;
+  padding:15px 10px 10px 10px;
+  box-sizing: border-box;
+  width: 100%!important;
+}
+.footBack a{
+  color:#d86100;
+  z-index: 3;
+}
+
+.loginbtn{
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.username{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size:20px;
+}
+.logoutbtn{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.error{
+  position: absolute;
+  top: 45%;
+  left: 43%;
+  margin-left: -50px;
+  margin-top: -25px; 
+}
+.card-upload{
+  position: absolute;
+  top: 45%;
+  left: 43%;
+  margin-left: -50px;
+  margin-top: -25px; 
+}
+.spacer{
+  margin-top: 100px;
+}
+.guildcard{
+  background-color: rgb(11, 5, 32);
+  border-radius: 10px;
+  display: block;
+  box-shadow: 5px 10px rgba(16,16,16,0.4);
+  font-size:30px;
+}
+.gimmespace{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.guildname{
+  text-align: center !important;
+}
+.card-title{
+  text-align: center !important;
+  color: #000 !important;
+}
