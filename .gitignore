@@ -2,4 +2,3 @@ node_modules
 siteconfig.json
 routes/index2.js
 hbs/*
-public/cards/*
