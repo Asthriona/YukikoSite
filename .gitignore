@@ -1,13 +1,5 @@
 node_modules
 siteconfig.json
 routes/index2.js
-hbs/data.hbs
-hbs/discord.hbs
-hbs/error.hbs
-hbs/index.hbs
-hbs/indexfr.hbs
-hbs/layout.hbs
-hbs/layoutlb.hbs
-hbs/wp-admin.hbs
-hbs/lb/dev.hbs
-hbs/lb/index.hbs
+hbs/*
+public/cards/*
