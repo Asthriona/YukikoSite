@@ -16,23 +16,17 @@ var userDataSchema = new mongoose.Schema({
   message: Number,
   avatarURL: String,
 }, { collection: 'users' });
-
 var UsersData = mongoose.model('Users', userDataSchema);
-
-function isAuthorise(req,res,next){
-  if(req.user){
-      console.log(`${req.user.username}`)
-      next();
-  }else{
-      next();
-  }
-}
 
 /* GET home page. */
 var title = "Yukiko Bot"
-router.get('/', isAuthorise, function (req, res, next) {
-  console.log(req.user)
-    res.render('home', { title: title});
+router.get('/', function (req, res, next) {
+    if(req.user){
+      console.log(req.user.username)
+      res.render('home', { title: title, username: req.user.username, avatar: "https://cdn.discordapp.com/avatars/"+req.user.did+"/"+req.user.avatar+".png", login:1});
+    }else{
+      res.render('home', { title: title, username: "User", avatar: "https://cdn.asthriona.com/6debd47ed13483642cf09e832ed0bc1b.png", login:0});
+    }
 });
 var title = "Yukiko Bot"
 router.get('/fr', function (req, res, next) {
@@ -46,11 +40,30 @@ router.get('/wp-login', function (req, res, next) {
 });
 //LeaderBoard
 router.get('/lb?:id', function (req, res, next) {
-  UsersData.find({ serverID: req.query.id })
+  if(req.user){
+    console.log(req.user.username)
+    UsersData.find({ serverID: req.query.id })
     .sort([['xp', 'descending']])
     .then(function (users) {
-      res.render('data', { items: users, title: title + "'s Leaderboard" })
+      res.render('data', { 
+        items: users,
+        username: req.user.username,
+        avatar: "https://cdn.discordapp.com/avatars/"+req.user.did+"/"+req.user.avatar+".png",
+        login:1
+      })
     })
+  }else{
+    UsersData.find({ serverID: req.query.id })
+    .sort([['xp', 'descending']])
+    .then(function (users) {
+      res.render('data', { 
+        items: users,
+        username: "User",
+        avatar: "https://cdn.asthriona.com/6debd47ed13483642cf09e832ed0bc1b.png",
+        login:0
+      })
+    })
+  }
 });
 
 //Login

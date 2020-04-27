@@ -9,6 +9,7 @@ var passport = require('passport');
 var DiscordStrategies = require('./strategies/discordstrategies');
 var MongoStore = require('connect-mongo')(session);
 var mongoose = require('mongoose');
+var formidable = require('formidable');
 var db = require('./database/database');
 var config = require('./siteconfig.json');
 require('dotenv').config();
@@ -19,7 +20,6 @@ db.then(() => console.log("Connected to Kurisu database."))
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var dashboardRouter = require('./routes/dashboard');
-var leaderboardRouter = require('./routes/leaderboard');
 
 var app = express();
 app.use(helmet());
@@ -48,13 +48,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/dashboard', dashboardRouter);
-app.use('/leaderboard', leaderboardRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

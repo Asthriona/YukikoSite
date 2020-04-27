@@ -337,6 +337,10 @@ dt {
   left: 10px;
   font-size:20px;
 }
+.username a{
+  color: #fff;
+  text-decoration: none;
+}
 .logoutbtn{
   position: absolute;
   top: 10px;
@@ -377,4 +381,31 @@ dt {
 .card-title{
   text-align: center !important;
   color: #000 !important;
+}
+.nav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0 0;
+  padding: 0.3rem;
+  font-size:20px;
+  
+}
+.nav ul{
+  list-style-type: none;
+  text-align: center !important;
+}
+.nav ul li{
+  display: inline;
+}
+.nav ul li a{
+  color: #fff;
+  text-decoration: none;
+}
+iframe {
+  position: fixed;
+  background-color: rgb(23, 11, 68);
+  border: none;
+  top: 91px;
 }

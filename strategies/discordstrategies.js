@@ -23,7 +23,15 @@ passport.use(new DiscordStrategies({
     try {
         var user = await Site.findOne({did: profile.id});
         if(user){
-            done(null, user);
+            var updatedUser = await Site.findOneAndUpdate({did: profile.id},
+                {
+                username: profile.username,
+                avatar: profile.avatar,
+                email: profile.email,
+                guilds: profile.guilds
+            });
+            var savedUser = await updatedUser.save();
+            done(null, savedUser);
         }else{
             var newUser = await Site.create({
                 did: profile.id,

@@ -1,0 +1,19 @@
+<%- include('partials/header.ejs') -%>
+<%- include('partials/dashHead.ejs') -%>
+<div class="spacer"></div>
+<div class="guild">
+    <div class="container">
+        <div class="row">
+            <% let ownGuilds = [];
+        for (let i = 0; i < guilds.length; i++) {
+            if (guilds[i].owner == true) {
+                ownGuilds.reverse().push(guilds[i]);
+            }
+        } %>
+            <% ownGuilds.forEach(guild =>{%>
+            <%- include('partials/guilds', { guild }) -%>
+            <% }); %>
+        </div>
+    </div>
+</div>
+<%- include('partials/footer.ejs') -%>
