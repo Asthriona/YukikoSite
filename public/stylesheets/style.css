@@ -333,7 +333,7 @@ dt {
 }
 .username{
   position: absolute;
-  top: 10px;
+  top: 40px;
   left: 10px;
   font-size:20px;
 }
@@ -343,15 +343,8 @@ dt {
 }
 .logoutbtn{
   position: absolute;
-  top: 10px;
+  top: 40px;
   right: 10px;
-}
-.error{
-  position: absolute;
-  top: 45%;
-  left: 43%;
-  margin-left: -50px;
-  margin-top: -25px; 
 }
 .card-upload{
   position: absolute;
@@ -408,4 +401,7 @@ iframe {
   background-color: rgb(23, 11, 68);
   border: none;
   top: 91px;
+}
+.appbeta{
+  height: 35px;
 }
