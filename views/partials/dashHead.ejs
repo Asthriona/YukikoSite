@@ -1,6 +1,14 @@
 <div class="username">
     <img src="<%= avatar %>" width="50px" class="rounded-circle" alt="">
-    <span><b>Welcome <%= username %>!</b></span>
+    <span><b>Welcome <a href="/"><%= username %></a>!</b></span>
+</div>
+<div class="nav">
+    <ul class="text-center">
+        <li><a href="/dashboard">Dashboard</a></li> | 
+        <li><a href="/dashboard/guilds">Server</a></li> |
+        <li><a href="/dashboard/cards">Edit cards</a></li> | 
+        <li><a href="/dashboard/status">Status</a></li>
+    </ul>
 </div>
 <div class="logoutbtn">
     <a href="/auth/logout">
