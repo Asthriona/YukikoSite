@@ -27,7 +27,7 @@ app.use(helmet());
 app.use(session({
   secret: config.secret,
   cookie: {
-    maxAge: 60000 * 60 * 1
+    maxAge: 60000 * 60 * 72
   },
   saveUninitialized: false,
   name: 'Yukiko_Yummy_cookie',
