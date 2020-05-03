@@ -105,5 +105,14 @@ router.post('/upload', (req, res) => {
             res.redirect('/dashboard/cards')
         })
 });
+router.get('/cardReset', (req,res,next)=>{
+    Cards.findOne({
+        did: req.user.did
+    }, async (err, cards)=>{
+        cards.link = "https://cdn.asthriona.com/DefaultYukikocard.jpg"
+        cards.save()
+    });
+    res.redirect('/dashboard/cards')
+})
 
 module.exports = router;
