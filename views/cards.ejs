@@ -2,22 +2,30 @@
 <%- include('partials/beta.ejs') -%>
 <%- include('partials/dashHead.ejs') -%>
 
+
 <div class="container">
-  <div class="row">
-      <div class="text-center">
-          <form method="post" action="upload" enctype="multipart/form-data">
-              <input type="file" name="image" accept="image/jpeg, image/png" required><br /><br />
-              <button type="submit" name="upload">Upload</button>
-            </form>
-      </div>
-      <div class="spacer"></div>
-      <div class="text-center">
-          <div class="actual-card">
-              <h5>What your card Looks like:</h5><br>
-              <img src="<%= card %>" height="282" width="934" class="rounded float-right" alt="">
-          </div>
-      </div>
-  </div>
+    <div class="row">
+        <center>
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" action="upload" enctype="multipart/form-data">
+                        <input type="file" name="image" accept="image/jpeg, image/png" required>
+                        <button class="btn btn-outline-primary" type="submit" name="upload">Upload</button>
+                    </form>
+                </div>
+            </div>
+        </center>
+        <div class="spacer"></div>
+        <div class="text-center">
+            <div class="actual-card">
+                <h5>What your card Looks like:</h5><br>
+                <img src="<%= card %>" height="282" width="934" class="rounded float-right" alt="">
+            </div>
+        </div>
+        <h5 class="text-center">
+            <a href="/dashboard/cardReset">Please reset my card! :c</a>
+        </h5>
+    </div>
 </div>
 
 <%- include('partials/footer.ejs') -%>
