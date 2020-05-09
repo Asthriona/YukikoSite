@@ -2,9 +2,28 @@
 <%- include('partials/beta.ejs') -%>
 <%- include('partials/dashHead.ejs') -%>
 <div class="spacer"></div>
-<div class="text-center">
+<!--<div class="text-center">
     <p>Wow! Such empty!</p>
 <p>Only one thing to do...</p>
 <img src="https://cdn.asthriona.com/3xxwf7.jpg" class="img-fluid" alt="">
+</div>-->
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="<%= avatar %>" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Greetings <%= username %>!</h5>
+    <p class="card-text">Thanks for using Yukiko! We hope you have a great day! :)</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Username: <%= username %>#<%= req.user.tag %></li>
+    <li class="list-group-item">Number of guilds: <%= guilds.length %></li>
+    <li class="list-group-item">Nitro: <% if(req.user.premium === "1"){ %>
+      Classic
+      <% }else if(req.user.premium === "2"){ %>
+      Hell Yeah! Nitro!
+      <% } else{ %>
+      Nope!
+      <% } %> </li>
+    <li class="list-group-item">Premium: Null</li>
+  </ul>
 </div>
 <%- include('partials/footer.ejs') -%>
