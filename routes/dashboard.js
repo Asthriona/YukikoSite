@@ -44,7 +44,7 @@ router.get('/', isAuthorise, addcards, async (req, res) => {
     res.render('dashboard', {
         title: title + ' | Dashboard',
         username: req.user.username,
-        avatar: "https://cdn.discordapp.com/avatars/" + req.user.did + "/" + req.user.avatar + ".png",
+        avatar: `https://cdn.discordapp.com/avatars/${req.user.did}/${req.user.avatar}.png?size=2048`,
         guilds: req.user.guilds,
         req: req
     })
