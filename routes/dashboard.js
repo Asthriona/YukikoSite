@@ -46,6 +46,7 @@ router.get('/', isAuthorise, addcards, async (req, res) => {
         username: req.user.username,
         avatar: "https://cdn.discordapp.com/avatars/" + req.user.did + "/" + req.user.avatar + ".png",
         guilds: req.user.guilds,
+        req: req
     })
 });
 router.get('/guilds', isAuthorise, (req, res) => {
@@ -68,7 +69,7 @@ router.get('/cards', isAuthorise, (req, res) => {
         });
     });
 });
-router.get('/status', isAuthorise, addcards, async (req, res) => {
+router.get('/status', addcards, async (req, res) => {
     res.render('status', {
         title: title + ' | Status',
         username: req.user.username,
@@ -105,10 +106,10 @@ router.post('/upload', (req, res) => {
             res.redirect('/dashboard/cards')
         })
 });
-router.get('/cardReset', (req,res,next)=>{
+router.get('/cardReset', (req, res, next) => {
     Cards.findOne({
         did: req.user.did
-    }, async (err, cards)=>{
+    }, async (err, cards) => {
         cards.link = "https://cdn.asthriona.com/DefaultYukikocard.jpg"
         cards.save()
     });
