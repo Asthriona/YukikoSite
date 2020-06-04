@@ -1,15 +1,21 @@
-<div class="col col-3 gimmespace">
+<div class="col col-sm-4 col-md-4 col-lg-4">
     <div class="card guildcard" style="width: 18rem;">
-        <% var  icon = "https://cdn.discordapp.com/icons/"+guild.id+"/"+guild.icon+".png?size=1024" %>
+        <% if(guild.icon.startsWith('a_')){
+            var  icon = "https://cdn.discordapp.com/icons/"+guild.id+"/"+guild.icon+".gif?size=1024"
+        }else{
+            var  icon = "https://cdn.discordapp.com/icons/"+guild.id+"/"+guild.icon+".png?size=1024"
+        }
+        %>
         <% if(guild.icon === null) var icon = "https://cdn.asthriona.com/6debd47ed13483642cf09e832ed0bc1b.png" %>
         <img class="card-img-top" src="<%= icon %>" alt="">
         <div class="card-body">
             <h6 class="card-title"><%= guild.name %></h6>
             <div class="btn-center" style="text-align: center;">
-                <a href="https://discordapp.com/oauth2/authorize?client_id=641626560457342987&scope=bot&guild_id=<%= guild.id %>&response_type=code&redirect_uri=http%3A%2F%2F192.168.0.24%3A3000%2Fauth%2Fredirect&permissions=8">
-                    <button type="button" class="btn btn-outline-primary" type="submit">Invit to guild</button>
+                <a href="/dashboard/guilddash?id=<%=guild.id%>">
+                    <button type="button" class="btn btn-outline-primary" type="submit">Dashboard</button>
                 </a>
             </div>
         </div>
     </div>
+    <div class="space" style="margin-bottom: 10px;"></div>
 </div>
