@@ -3,7 +3,7 @@ console.log("Website developed by Asthriona & Heather");
 console.log("Hosted by Asthriona ltd.");
 console.log("GitHub: https://github.com/Asthriona/Yukiko");
 
-var oldTime = new Date('2019/11/11 19:04:00');
+var oldTime = new Date('2019/04/12 16:50:52');
 var timer = setInterval(function () {
   var nowTime = new Date();
   var longTime = nowTime - oldTime;
