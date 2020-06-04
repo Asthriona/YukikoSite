@@ -7,8 +7,6 @@ var formidable = require('formidable');
 var axios = require('axios');
 var Site = require('../model/DiscordSite');
 var Cards = require('../model/cards');
-var ServerList = require('../model/serverList');
-var serverSetings = require('../model/serverSetings')
 
 function isAuthorise(req, res, next) {
     if (req.user) {
@@ -42,47 +40,44 @@ function addcards(req, res, next) {
         }
     });
 }
-router.get('/', isAuthorise, addcards, animeavatar, async (req, res) => {
+router.get('/', isAuthorise, addcards, async (req, res) => {
     res.render('dashboard', {
         title: title + ' | Dashboard',
         username: req.user.username,
-        avatar: `${avatar}?size=2048`,
+        avatar: `https://cdn.discordapp.com/avatars/${req.user.did}/${req.user.avatar}.png?size=2048`,
         guilds: req.user.guilds,
         req: req
     })
 });
-router.get('/guilds', isAuthorise,animeavatar, (req, res) => {
+router.get('/guilds', isAuthorise, (req, res) => {
     res.render('guildPanel', {
         title: title + ' | Dashboard',
         username: req.user.username,
-        avatar: `${avatar}?size=2048`,
+        avatar: "https://cdn.discordapp.com/avatars/" + req.user.did + "/" + req.user.avatar + ".png",
         guilds: req.user.guilds,
-        req: req
     });
 });
-router.get('/cards', isAuthorise,animeavatar, (req, res) => {
+router.get('/cards', isAuthorise, (req, res) => {
     Cards.findOne({ did: req.user.did }, (err, cards) => {
         if (!cards) { newCards() }
         res.render('cards', {
             title: title + ' | Dashboard',
             username: req.user.username,
-            //avatar: `https://cdn.discordapp.com/avatars/${req.user.did}/${req.user.avatar}.png?size=2048`,
-            avatar: `${avatar}?size=2048`,
+            avatar: "https://cdn.discordapp.com/avatars/" + req.user.did + "/" + req.user.avatar + ".png",
             guilds: req.user.guilds,
             card: cards.link
         });
     });
 });
-router.get('/status', addcards,animeavatar, async (req, res) => {
+router.get('/status', addcards, async (req, res) => {
     res.render('status', {
         title: title + ' | Status',
         username: req.user.username,
-        //avatar: `https://cdn.discordapp.com/avatars/${req.user.did}/${req.user.avatar}.png?size=2048`,
-        avatar: `${avatar}?size=2048`,
+        avatar: "https://cdn.discordapp.com/avatars/" + req.user.did + "/" + req.user.avatar + ".png",
         guilds: req.user.guilds,
     })
 });
-router.post('/upload',isAuthorise, (req, res) => {
+router.post('/upload', (req, res) => {
     new formidable.IncomingForm().parse(req)
         .on('field', (name, field) => {
             if (name === null) res.redirect("/");
@@ -111,7 +106,7 @@ router.post('/upload',isAuthorise, (req, res) => {
             res.redirect('/dashboard/cards')
         })
 });
-router.get('/cardReset',isAuthorise, (req, res, next) => {
+router.get('/cardReset', (req, res, next) => {
     Cards.findOne({
         did: req.user.did
     }, async (err, cards) => {
@@ -120,40 +115,5 @@ router.get('/cardReset',isAuthorise, (req, res, next) => {
     });
     res.redirect('/dashboard/cards')
 })
-router.get('/guilddash?:id', isAuthorise, animeavatar, (req,res, next)=>{
-    ServerList.findOne({
-        sid: req.query.id
-    }, (err, serverlists)=>{
-        serverSetings.findOne({
-            sid: req.query.id
-        }, (err, setings)=>{
-            if(!setings){
-                var newSetings = new serverSetings({
-                    sid: req.query.id,
-                    level: true,
-                    musicbot: true,
-                    welcome: true,
-                    farewell: true,
-                    usercount: true,
-                    rankcard: true,
-                    rankchannel: "Channel"
-                })
-                newSetings.save()
-            }
-        if(!serverlists){
-            res.redirect('https://discordapp.com/oauth2/authorize?client_id=641626560457342987&scope=bot&guild_id='+req.query.id+'&response_type=code&redirect_uri=http://yukiko.app/auth/redirect&permissions=8')
-        }else{
-            res.render('guildDash',{
-                username: req.user.username,
-                //avatar: `https://cdn.discordapp.com/avatars/${req.user.did}/${req.user.avatar}.png?size=2048`,
-                avatar: `${avatar}?size=2048`,
-                guilds: req.user.guilds,
-                req: req,
-                server: serverlists,
-                setings: setings
-            })
-        }
-    })
-})
-});
+
 module.exports = router;
