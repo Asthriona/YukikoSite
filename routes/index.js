@@ -65,6 +65,10 @@ router.get('/lb?:id', function (req, res, next) {
     })
   }
 });
+router.get('/forbidden', (req,res)=>{
+  res.send("woops! An error happened!").status('403')
+  res.end()
+})
 
 //Login
 
