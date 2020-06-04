@@ -1,0 +1,53 @@
+<%- include('partials/header.ejs') -%>
+<%- include('partials/beta.ejs') -%>
+<%- include('partials/dashHead.ejs') -%>
+<div class="spacer"></div>
+<div class="container">
+    <div class="row">
+        <% var icon = server.sicon; 
+        console.log(server.icon)%> 
+        <div class="col-md-12 text-center">
+            <img src="<%= icon %>" class="rounded-circle" alt="">
+           <h1><%= server.sname %></h1>
+           <span><%= server.sid %> </span>
+            <hr>
+    </div>
+    </div>
+        <div class="row">
+          <div class="col" id="dashText">
+            <ul>
+                <li>Leveling: </li>
+                <hr>
+                <li>music bot: </li>
+                <hr>
+                <li>Welcome message: </li>
+                <hr>
+                <li>Farewell message: </li>
+                <hr>
+                <li>user count: </li>
+                <hr>
+                <li>Rank card: </li>
+                <hr>
+                <li>Rank card channel: </li>
+                <hr>
+            </ul>
+          </div>
+          <div class="col">
+            <label class="switch"><input type="checkbox" <%= setings.level ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <hr>
+            <label class="switch"><input type="checkbox" <%= setings.musicbot ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <hr>
+            <label class="switch"><input type="checkbox" <%= setings.welcome ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <hr>
+            <label class="switch"><input type="checkbox" <%= setings.farewell ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <hr>
+            <label class="switch"><input type="checkbox" <%= setings.usercount ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <hr>
+            <label class="switch"><input type="checkbox"<%= setings.rankcard ? "checked" : "" %>><span class="slider round"></span></label><br>
+            <select name="Channel" id="Channel" style="width: 500px !important;">
+                <option value="">Hall of fame</option>
+            </select>
+          </div>
+          </div>
+</div>
+<%- include('partials/footer.ejs') -%>
