@@ -5,7 +5,7 @@ var SiteShchema = new mongoose.Schema({
     username: { type: String, required: true },
     tag: { type: String, required: true },
     avatar: { type: String, required: false },
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     guilds: { type: Array, required: true },
     premium: { type: String, required: false },
     local: { type: String, required: true },

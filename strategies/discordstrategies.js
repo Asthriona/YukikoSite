@@ -18,7 +18,7 @@ passport.use(new DiscordStrategies({
     clientID: config.client_id,
     clientSecret: config.client_secret,
     callbackURL: config.client_redirect,
-    scope: ['identify', 'guilds', 'email']
+    scope: ['identify', 'guilds']
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         var user = await Site.findOne({ did: profile.id });
