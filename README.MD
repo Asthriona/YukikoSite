@@ -1,3 +1,8 @@
+## PROJECT NO LONGER SUPPORTED!  
+This project has been created a long time ago, back then we didnt really know what we were doing.  
+We (The [Yukiko Dev Team](https://github.com/Yukiko-Dev-Team)) do not support this project anymore instead we are using a private version on our Git ([github.com/Yukiko-Dev-Team](https://github.com/Yukiko-Dev-Team))  
+I may will work on a new version as soon as we finished the new production website for [Yukiko](https://Yukiko.app) and the open Yukiko version is updated.  
+
 # Yukiko's Website
 This web app works with [Asthriona/Yukiko](https://github.com/Asthriona/Yukiko).  
 Yukiko is a pretty powerfull Discord bot that include XP system, Leaderboard, Music, Welcome and farewell message, Moderation, and much more!
